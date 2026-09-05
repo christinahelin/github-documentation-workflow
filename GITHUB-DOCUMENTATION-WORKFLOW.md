@@ -1490,3 +1490,381 @@ When uncertain, stop and check:
 | Is this branch still unique? | Ahead/Behind status |
 
 Taking a few seconds to identify the repository, branch, and state of the change is usually safer than immediately trying to undo something.
+
+---
+
+# Markdown Quick Reference
+
+GitHub uses **Markdown** to format text in files with the `.md` extension.
+
+Markdown allows writers to create structured documentation using plain-text characters rather than a traditional word processor.
+
+For example, while editing a Markdown file, you type:
+
+```markdown
+## Request Paid Time Off
+```
+
+When you select **Preview**, GitHub renders it as a second-level heading.
+
+Use the following reference when creating or editing documentation in GitHub.
+
+---
+
+## Headings
+
+Use `#` characters to create headings.
+
+### What You Type
+
+```markdown
+# Document Title
+
+## Major Section
+
+### Subsection
+
+#### Smaller Subsection
+```
+
+The number of `#` characters determines the heading level.
+
+| Markdown | Heading Level | Typical Use |
+| --- | --- | --- |
+| `#` | Heading 1 | Document title |
+| `##` | Heading 2 | Major section |
+| `###` | Heading 3 | Subsection |
+| `####` | Heading 4 | Section within a subsection |
+
+For most documentation, use only one Heading 1 for the document title and organize the remaining content hierarchically underneath it.
+
+---
+
+## Bold Text
+
+Use two asterisks on each side of text to make it bold.
+
+### What You Type
+
+```markdown
+Select **Commit changes**.
+```
+
+### How It Renders
+
+Select **Commit changes**.
+
+Bold formatting is useful for interface elements such as button names, menu options, tabs, and fields.
+
+---
+
+## Italic Text
+
+Use one asterisk on each side of text.
+
+### What You Type
+
+```markdown
+*Optional*
+```
+
+### How It Renders
+
+*Optional*
+
+Use italics sparingly when emphasis is necessary.
+
+---
+
+## Bulleted Lists
+
+Use a hyphen followed by a space for each list item.
+
+### What You Type
+
+```markdown
+- Create a branch
+- Edit the documentation
+- Preview the changes
+- Commit the changes
+```
+
+### How It Renders
+
+- Create a branch
+- Edit the documentation
+- Preview the changes
+- Commit the changes
+
+Use bulleted lists when the order of the items does not matter.
+
+---
+
+## Numbered Lists
+
+Use numbers when the reader must perform steps in a particular order.
+
+### What You Type
+
+```markdown
+1. Open the repository.
+2. Create a branch.
+3. Edit the documentation.
+4. Preview the changes.
+5. Commit the changes.
+```
+
+### How It Renders
+
+1. Open the repository.
+2. Create a branch.
+3. Edit the documentation.
+4. Preview the changes.
+5. Commit the changes.
+
+For procedures, numbered lists help communicate that the actions should be completed sequentially.
+
+---
+
+## Links
+
+Use square brackets for the text the reader sees and parentheses for the destination.
+
+### What You Type
+
+```markdown
+[View the TaskFlow documentation](https://github.com/example/taskflow-documentation)
+```
+
+The structure is:
+
+```text
+[Visible link text](destination)
+```
+
+For files within the same repository, a relative link can be used.
+
+Example:
+
+```markdown
+[Read the case study](CASE-STUDY.md)
+```
+
+A relative link points to another file based on its location within the repository rather than requiring the full web address.
+
+---
+
+## Tables
+
+Tables use vertical bars (`|`) to separate columns.
+
+### What You Type
+
+```markdown
+| Status | Description |
+| --- | --- |
+| Pending | Awaiting review |
+| Approved | Request approved |
+| Denied | Request not approved |
+```
+
+### How It Renders
+
+| Status | Description |
+| --- | --- |
+| Pending | Awaiting review |
+| Approved | Request approved |
+| Denied | Request not approved |
+
+The second row:
+
+```text
+| --- | --- |
+```
+
+defines the table columns and separates the header from the table content.
+
+---
+
+## Blockquotes
+
+Use `>` at the beginning of a line to create a blockquote.
+
+### What You Type
+
+```markdown
+> **Tip:** Preview your Markdown before committing the change.
+```
+
+### How It Renders
+
+> **Tip:** Preview your Markdown before committing the change.
+
+Blockquotes can be useful for notes, tips, warnings, or other information that should stand apart from the surrounding text.
+
+---
+
+## Inline Code
+
+Use a single backtick on each side of text to identify commands, file names, branch names, paths, or other technical values.
+
+### What You Type
+
+```markdown
+Create a branch named `update-task-status`.
+```
+
+### How It Renders
+
+Create a branch named `update-task-status`.
+
+Other examples include:
+
+`main`
+
+`README.md`
+
+`docs/getting-started.md`
+
+`.md`
+
+---
+
+## Code Blocks
+
+Use three backticks before and after a block of code or preformatted text.
+
+### What You Type
+
+    ```text
+    main
+      ↓
+    feature branch
+      ↓
+    commit
+    ```
+
+Code blocks preserve formatting and are useful for examples where spacing matters.
+
+---
+
+## Horizontal Lines
+
+Use three hyphens to create a horizontal divider.
+
+### What You Type
+
+```markdown
+---
+```
+
+Horizontal lines can visually separate major portions of a long document.
+
+Avoid using them so frequently that the document becomes visually fragmented.
+
+---
+
+## File Names and Paths
+
+A Markdown filename typically ends in:
+
+`.md`
+
+Examples:
+
+`README.md`
+
+`getting-started.md`
+
+`GITHUB-DOCUMENTATION-WORKFLOW.md`
+
+A forward slash indicates that a file is inside a folder.
+
+For example:
+
+`docs/getting-started.md`
+
+means:
+
+```text
+repository
+└── docs
+    └── getting-started.md
+```
+
+When creating a new file in GitHub, entering the folder and filename together can create the file at that location.
+
+---
+
+## Common Markdown Mistakes
+
+### Missing Space After a Heading Symbol
+
+Incorrect:
+
+```markdown
+##Heading
+```
+
+Correct:
+
+```markdown
+## Heading
+```
+
+### Forgetting to Close Bold Formatting
+
+Incorrect:
+
+```markdown
+Select **Commit changes.
+```
+
+Correct:
+
+```markdown
+Select **Commit changes**.
+```
+
+### Incorrect Link Structure
+
+Incorrect:
+
+```markdown
+[Read the guide] GITHUB-DOCUMENTATION-WORKFLOW.md
+```
+
+Correct:
+
+```markdown
+[Read the guide](GITHUB-DOCUMENTATION-WORKFLOW.md)
+```
+
+### Forgetting the Table Separator Row
+
+A Markdown table requires the separator underneath the header:
+
+```markdown
+| Action | Purpose |
+| --- | --- |
+| Commit | Save a change |
+```
+
+---
+
+## Markdown Writing Checklist
+
+Before committing a Markdown document, check:
+
+- [ ] The document has a clear title.
+- [ ] Heading levels follow a logical hierarchy.
+- [ ] Sequential procedures use numbered steps.
+- [ ] Nonsequential information uses bullets where appropriate.
+- [ ] UI elements are formatted consistently.
+- [ ] File names, paths, and branch names are easy to distinguish.
+- [ ] Tables render correctly.
+- [ ] Links point to the intended destination.
+- [ ] Notes and tips are visually distinct.
+- [ ] The document has been reviewed in **Preview**.
+
+> **Tip:** If you cannot remember the Markdown syntax, open an existing `.md` file that contains the formatting you want and select **Edit** to see how it was written.
