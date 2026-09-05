@@ -1098,3 +1098,395 @@ The feature branch is no longer needed.
 | Delete branch | Remove the completed temporary workspace | Keeps the repository organized |
 
 > **Note:** When working entirely in GitHub's website, GitHub handles much of the remote repository interaction for you. You may therefore not manually perform a separate `push` step. When using Git locally, `commit` and `push` are separate actions.
+
+---
+
+# Troubleshooting and Recovering from Common Mistakes
+
+Mistakes in GitHub do not always mean that work has been lost or damaged. Before deleting, reverting, or recreating anything, identify:
+
+1. Which repository you are in.
+2. Which branch you are on.
+3. Whether the change has been committed.
+4. Whether the change has been merged into `main`.
+
+Understanding where the change exists determines the appropriate recovery action.
+
+---
+
+## I Created a Branch in the Wrong Repository
+
+### What Happened?
+
+A branch belongs to the repository in which it was created.
+
+For example, suppose you intend to create a new repository named:
+
+`github-documentation-workflow`
+
+but you are currently inside:
+
+`username/profile-repository`
+
+If you enter `github-documentation-workflow` in the **branch selector**, GitHub creates a branch with that name inside the existing profile repository.
+
+It does **not** create a new repository.
+
+You would have:
+
+    username/profile-repository
+    │
+    ├── main
+    └── github-documentation-workflow  ← accidental branch
+
+instead of:
+
+    username/github-documentation-workflow
+    │
+    └── main
+
+### How to Fix It
+
+If no work on the accidental branch needs to be preserved:
+
+1. Open the repository containing the accidental branch.
+2. Open the branch selector.
+3. Select **View all branches**.
+4. Locate the accidental branch.
+5. Verify that you are selecting the correct branch.
+6. Select the **Delete branch** or trash-can option.
+7. Create or navigate to the correct repository.
+
+Deleting the accidental branch does not delete a separate repository with the same name.
+
+> **Prevention:** Before creating a branch, check the repository name displayed near the upper-left area of the page.
+
+---
+
+## I Created a File in the Wrong Folder
+
+### What Happened?
+
+When creating a file, GitHub uses the path shown in the filename area to determine where the file will be stored.
+
+For example:
+
+`original/employee-pto-policy.md`
+
+places the file inside the `original` folder.
+
+If you intended the file to be at the repository root, that location would be incorrect.
+
+### If You Have Not Committed Yet
+
+The easiest solution is usually:
+
+1. Select **Cancel changes**.
+2. Return to the correct repository location.
+3. Create the file again in the intended location.
+
+If you are creating a root-level file, make sure the path does not include an unwanted folder.
+
+### If You Already Committed the File
+
+Do not panic or delete the entire branch.
+
+You can correct the file location in another commit by moving or recreating the file in the appropriate location and removing the incorrectly located version.
+
+Use a commit message that explains the correction, such as:
+
+`Move PTO procedure to repository root`
+
+A correction commit is a normal part of version-controlled work.
+
+---
+
+## I Started Editing the Wrong File
+
+If the change has **not been committed**, cancel the edit and open the correct file.
+
+If the change **has been committed**, first determine whether the incorrect changes need to be preserved.
+
+Do not begin deleting files or branches until you understand where the committed work exists.
+
+For a simple correction, restore the incorrect file to the appropriate content and commit the correction.
+
+Example:
+
+`Restore original PTO source document`
+
+---
+
+## I Made Changes on `main` Instead of Creating a Branch
+
+First determine whether the change has been committed.
+
+### If You Have Not Committed
+
+Cancel the edit.
+
+Then:
+
+1. Return to the repository.
+2. Make sure `main` is selected.
+3. Create the appropriate working branch.
+4. Make the change on that branch.
+
+### If You Already Committed to `main`
+
+The change is now part of `main`.
+
+Do not attempt to fix the mistake by randomly deleting files, branches, or commits.
+
+For a personal documentation repository, a small intentional change committed directly to `main` may not require correction at all.
+
+For a professional repository, follow the team's established process for correcting or reverting changes to `main`.
+
+> **Important:** Whether a direct commit to `main` is allowed depends on repository permissions and team practices. Some repositories protect `main` and require all changes to go through pull requests.
+
+---
+
+## When Is It Okay to Commit Directly to `main`?
+
+For a small personal repository, direct commits to `main` may be reasonable for minor changes such as:
+
+- Correcting a typo
+- Fixing a broken link
+- Making a small README update
+- Correcting simple formatting
+
+A branch and pull request are more appropriate when:
+
+- Adding a new document
+- Making substantial revisions
+- Changing multiple files
+- Creating work that should be reviewed
+- Collaborating with other contributors
+- Working in a repository that requires pull requests
+
+When in doubt, using a branch is generally the safer workflow because it creates an opportunity to review the change before it reaches `main`.
+
+---
+
+## I Committed Too Early
+
+A commit does not have to represent the finished project.
+
+If you committed a change and then realized additional work is needed, continue editing on the same branch and create another commit.
+
+For example:
+
+    Commit 1: Add task status guide
+            ↓
+    Notice missing troubleshooting information
+            ↓
+    Commit 2: Add task status troubleshooting
+
+You do not need to delete the first commit simply because the document was not completely finished.
+
+Multiple logical commits on one branch are normal.
+
+---
+
+## I Used a Bad Commit Message
+
+A vague commit message such as:
+
+`changes`
+
+does not automatically damage the documentation.
+
+If the commit has already been created, avoid rewriting repository history solely to make a minor cosmetic improvement unless your team's workflow specifically requires it.
+
+Instead, use clearer messages for future commits.
+
+For example:
+
+Instead of:
+
+`update`
+
+use:
+
+`Clarify branch deletion instructions`
+
+Good version-control habits are developed over time. Not every imperfect message requires a recovery operation.
+
+---
+
+## I Do Not See My Changes on `main`
+
+This is often normal.
+
+Ask:
+
+**Did I commit the change on a feature branch?**
+
+If yes, the change is saved on that branch.
+
+Next ask:
+
+**Did I create and merge a pull request into `main`?**
+
+If not, the change has not reached `main` yet.
+
+The workflow may currently be:
+
+    main
+      │
+      └── feature branch
+              │
+              └── committed changes
+
+You still need:
+
+    committed changes
+          ↓
+    pull request
+          ↓
+        review
+          ↓
+         merge
+          ↓
+         main
+
+Switching back to `main` before merging may therefore make it appear that the new file or content has disappeared.
+
+It has not disappeared. It remains on the feature branch.
+
+---
+
+## I Created a Pull Request but Found Another Problem
+
+You do not necessarily need to close the pull request.
+
+If the pull request is still open:
+
+1. Return to the branch associated with the pull request.
+2. Make the necessary correction.
+3. Commit the correction to the same branch.
+4. Return to the pull request.
+
+GitHub updates the open pull request to include the new commit.
+
+This allows review feedback and corrections to remain part of the same proposed change.
+
+---
+
+## I Opened a Pull Request but Do Not Want to Merge It
+
+A pull request does not have to be merged.
+
+If the proposed change should not be added to `main`, close the pull request without merging it.
+
+Closing a pull request means:
+
+> Do not incorporate these proposed branch changes into the target branch.
+
+Closing the pull request does not automatically mean that the branch itself must be deleted.
+
+Decide separately whether the branch should be preserved or removed.
+
+---
+
+## I Am Afraid to Delete a Branch
+
+Before deleting a completed branch, confirm:
+
+1. The pull request was successfully merged.
+2. The desired changes appear on `main`.
+3. The branch does not contain additional work that still needs to be preserved.
+
+Once committed work has been merged into `main`, deleting the feature branch does not remove those merged changes from `main`.
+
+For example:
+
+Before merge:
+
+    main: A
+    feature: A → B
+
+After merge:
+
+    main: A → B
+    feature: A → B
+
+After deleting the feature branch:
+
+    main: A → B
+
+Commit `B` remains in `main`.
+
+The temporary branch name is removed; the merged work is not.
+
+---
+
+## I See an Old Branch That Is 0 Ahead and 2 Behind
+
+Suppose GitHub displays:
+
+**Ahead: 0**  
+**Behind: 2**
+
+This means:
+
+- The old branch contains no commits that `main` is missing.
+- `main` contains two commits that the old branch does not contain.
+
+If the branch's work was already merged and no additional work is needed, this is a strong indication that the old branch may simply be stale and can be cleaned up.
+
+Before deleting it, still confirm that the branch does not contain work you intend to keep.
+
+---
+
+## I Deleted the Wrong Branch
+
+First, determine whether the branch had been merged.
+
+If the work was already merged into `main`, the merged changes remain on `main`.
+
+Deleting the branch does not undo the merge.
+
+If the branch contained unmerged work, recovery may require restoring the branch or locating its commits. The available recovery options depend on the repository state and GitHub interface.
+
+> **Important:** If you are uncertain whether an unmerged branch contains work you need, do not delete it until you have verified its contents.
+
+---
+
+## Repository or Branch? Quick Decision Guide
+
+Ask:
+
+**Am I starting an entirely separate project?**
+
+→ Create a **repository**.
+
+**Am I making a change to an existing project?**
+
+→ Create a **branch** in that repository.
+
+**Am I making another related change as part of the work already underway on my current branch?**
+
+→ Continue using the **current branch** and make another logical commit.
+
+**Has my work been merged and the branch is finished?**
+
+→ Verify the work on `main`, then **delete the branch**.
+
+---
+
+## Before You Click Delete, Merge, or Commit
+
+When uncertain, stop and check:
+
+| Question | What to Verify |
+| --- | --- |
+| Where am I? | Repository name |
+| What version am I changing? | Branch name |
+| Has this been saved? | Commit history |
+| Is it already in the accepted version? | Check `main` |
+| Has it been proposed for merge? | Pull requests |
+| Has the pull request been completed? | Merged status |
+| Is this branch still unique? | Ahead/Behind status |
+
+Taking a few seconds to identify the repository, branch, and state of the change is usually safer than immediately trying to undo something.
