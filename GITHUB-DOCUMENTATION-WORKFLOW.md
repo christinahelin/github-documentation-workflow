@@ -984,56 +984,6 @@ Once the work is safely merged into `main`, deleting the working branch is norma
 
 ---
 
-## Understanding Ahead and Behind
-
-GitHub may display numbers showing that a branch is **ahead** or **behind** another branch.
-
-These numbers describe differences between the histories of the branches.
-
-### Ahead
-
-If a branch is:
-
-**1 ahead**
-
-the branch contains one commit that `main` does not currently contain.
-
-For example:
-
-`main: A → B`
-
-`feature branch: A → B → C`
-
-The feature branch is one commit ahead because commit `C` has not yet been merged into `main`.
-
-### Behind
-
-If a branch is:
-
-**2 behind**
-
-`main` contains two commits that the branch does not contain.
-
-For example:
-
-`main: A → B → C → D`
-
-`feature branch: A → B`
-
-The feature branch is two commits behind because it does not contain commits `C` and `D`.
-
-### 0 Ahead / 0 Behind
-
-If a branch displays:
-
-**0 ahead / 0 behind**
-
-the branch and `main` currently contain the same commit history.
-
-This often happens immediately after creating a new branch before making any changes.
-
----
-
 ## A Complete Example
 
 Suppose you need to add a new troubleshooting section to this guide.
