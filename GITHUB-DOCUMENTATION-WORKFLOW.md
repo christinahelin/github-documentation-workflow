@@ -643,3 +643,458 @@ The pull request title summarizes the overall change being reviewed and merged.
 | Pull request title | Summary of the overall proposed change | Yes |
 | Pull request description | Explains scope and key changes | Usually yes |
 | Auto-generated merge message | Records the merge event | Usually leave as generated |
+
+## Pull Requests
+
+A pull request (PR) is a request to merge changes from one branch into another branch.
+
+In a documentation workflow, you will commonly:
+
+1. Create a branch from `main`.
+2. Make documentation changes on the branch.
+3. Commit those changes.
+4. Create a pull request.
+5. Review the changes.
+6. Merge the pull request into `main`.
+7. Delete the completed branch.
+
+A pull request creates a review point before changes become part of the main version of the documentation.
+
+### When Should I Create a Pull Request?
+
+Create a pull request when you have completed the changes you intended to make on your branch and are ready for those changes to be reviewed and added to `main`.
+
+For example, suppose you create a branch named:
+
+`update-pto-procedure`
+
+You might make several changes on that branch, such as:
+
+- Reorganizing the PTO procedure
+- Adding numbered instructions
+- Correcting terminology
+- Updating the README
+- Adding screenshots
+
+You can make multiple commits while completing this work. You do not need to create a pull request after every commit.
+
+Instead, create the pull request when the branch represents a complete or reviewable unit of work.
+
+---
+
+## Creating a Pull Request
+
+After committing changes to a branch, return to the repository's **Code** page.
+
+GitHub may display a banner stating that your branch had recent pushes.
+
+Select **Compare & pull request**.
+
+If the banner is not displayed:
+
+1. Select **Pull requests** from the repository navigation.
+2. Select **New pull request**.
+3. Confirm that the branches are correct.
+
+You will typically see something similar to:
+
+**base: main ← compare: your-branch-name**
+
+For example:
+
+**base: main ← compare: update-pto-procedure**
+
+This means:
+
+> Take the changes from `update-pto-procedure` and propose adding them to `main`.
+
+### Important: Check the Branch Direction
+
+Before creating the pull request, verify:
+
+- **Base** = the branch receiving the changes
+- **Compare** = the branch containing your changes
+
+In this workflow, `main` will usually be the base branch.
+
+Your working branch will usually be the compare branch.
+
+If these are reversed, the pull request may attempt to merge changes in the wrong direction.
+
+---
+
+## Writing a Pull Request Title
+
+The pull request title should briefly describe the overall change.
+
+Good examples include:
+
+- `Add GitHub documentation workflow guide`
+- `Redesign PTO policy and procedure`
+- `Add task management user documentation`
+- `Update onboarding documentation`
+- `Improve PTO request instructions`
+
+Avoid vague titles such as:
+
+- `Changes`
+- `Updates`
+- `New stuff`
+- `Fix`
+- `Documentation`
+
+The title should help another person understand the purpose of the pull request without opening it.
+
+### Pull Request Title vs. Commit Message
+
+A pull request title and a commit message may look similar, but they describe different things.
+
+A **commit message** describes a specific saved change.
+
+A **pull request title** describes the overall body of work being proposed for merging.
+
+For example, a branch might contain these commits:
+
+- `Add GitHub workflow guide foundation`
+- `Add commit message guidance`
+- `Add pull request instructions`
+- `Add troubleshooting section`
+
+The pull request containing all four commits could be titled:
+
+`Add GitHub documentation workflow guide`
+
+The pull request title summarizes the entire change rather than repeating one individual commit.
+
+---
+
+## Writing a Pull Request Description
+
+Use the pull request description to provide additional context about the change.
+
+A useful description may explain:
+
+- What was changed
+- Why the change was needed
+- Which files were affected
+- Anything a reviewer should pay particular attention to
+
+For example:
+
+### Summary
+
+Adds a comprehensive GitHub documentation workflow guide covering branches, commits, pull requests, merging, and common documentation workflows.
+
+### Changes
+
+- Added branch creation guidance
+- Added commit message and extended description guidance
+- Added pull request instructions
+- Added examples for documentation workflows
+- Added troubleshooting information for common mistakes
+
+For a small personal portfolio project, the description does not need to be extremely detailed. However, practicing clear pull request descriptions demonstrates a professional documentation workflow.
+
+---
+
+## Reviewing a Pull Request Before Merging
+
+Do not immediately select **Merge pull request** simply because GitHub allows you to.
+
+First, review the pull request.
+
+Check the following areas:
+
+### Commits
+
+Review the commits included in the pull request.
+
+Ask:
+
+- Do these commits belong in this project?
+- Did I accidentally include unrelated work?
+- Do the commit messages make sense?
+
+### Files Changed
+
+Select **Files changed**.
+
+This view shows exactly what the pull request will add, remove, or modify.
+
+Lines added to a file are typically displayed as additions.
+
+Lines removed from a file are typically displayed as deletions.
+
+Review the changes and ask:
+
+- Did I modify the correct file?
+- Did I accidentally delete anything?
+- Is the Markdown formatted correctly?
+- Are headings and lists structured correctly?
+- Are links correct?
+- Did I leave temporary notes or placeholder text?
+- Does the rendered documentation look the way I intended?
+
+This review step is particularly important for technical writers because it functions as a final quality-control check before publication.
+
+---
+
+## Merging a Pull Request
+
+Once you are satisfied with the changes, you can merge the pull request.
+
+Select:
+
+**Merge pull request**
+
+GitHub will display a confirmation screen containing a commit message and, in some cases, an extended description.
+
+### Should I Change GitHub's Automatically Generated Merge Commit Message?
+
+Not always.
+
+GitHub may generate something similar to:
+
+`Merge pull request #1 from username/update-pto-procedure`
+
+This message is technically correct and provides traceability to the pull request and branch.
+
+For ordinary merges, it is perfectly acceptable to leave this automatically generated message.
+
+You may change it when a clearer description would make the repository history easier to understand.
+
+For example:
+
+`Merge PTO policy and procedure redesign`
+
+You might use the extended description for additional context:
+
+`Adds the redesigned PTO document and supporting case study.`
+
+### When to Leave the Automatically Generated Message
+
+Consider leaving GitHub's generated merge message when:
+
+- The pull request title already clearly explains the work.
+- You want the pull request number and branch name preserved in the commit history.
+- The repository follows GitHub's default merge conventions.
+- There is no meaningful additional context to add.
+
+### When to Customize the Merge Message
+
+Consider customizing the message when:
+
+- The automatically generated text is difficult to understand.
+- The branch name does not clearly describe the completed work.
+- A clearer message would improve the repository history.
+- Your team or organization follows a specific commit-message convention.
+
+The goal is not to customize every field simply because GitHub allows you to edit it.
+
+The goal is to create useful documentation history.
+
+---
+
+## Confirming the Merge
+
+After reviewing the merge information, select:
+
+**Confirm merge**
+
+The changes from your branch are now incorporated into `main`.
+
+Return to the repository's **Code** page and select the `main` branch.
+
+Confirm that the new or updated files appear there.
+
+At this point:
+
+- Your working branch contains the changes.
+- `main` now also contains those changes.
+- The pull request records the review and merge history.
+
+---
+
+## Deleting a Branch After a Merge
+
+After successfully merging a pull request, GitHub may display a **Delete branch** button.
+
+In most cases, you should delete the completed working branch.
+
+Deleting the branch does **not** delete the work you just merged.
+
+The changes are already part of `main`.
+
+Think of the branch as a temporary workspace.
+
+Before the merge:
+
+`main → working branch → changes`
+
+After the merge:
+
+`working branch → merged into main`
+
+Once the work exists in `main`, the temporary branch is usually no longer necessary.
+
+### When Should I Delete a Branch?
+
+Delete a branch when:
+
+- Its work has been successfully merged.
+- You have confirmed that the changes appear in `main`.
+- You do not plan to continue using that branch for additional work.
+
+### When Should I Keep a Branch?
+
+You may keep a branch temporarily when:
+
+- The pull request has not been merged.
+- Work on the branch is still in progress.
+- You need to make additional changes requested during review.
+- The branch represents ongoing work that is not ready for `main`.
+
+Do not keep old branches simply because deleting them feels dangerous.
+
+Once the work is safely merged into `main`, deleting the working branch is normal repository maintenance.
+
+---
+
+## Understanding Ahead and Behind
+
+GitHub may display numbers showing that a branch is **ahead** or **behind** another branch.
+
+These numbers describe differences between the histories of the branches.
+
+### Ahead
+
+If a branch is:
+
+**1 ahead**
+
+the branch contains one commit that `main` does not currently contain.
+
+For example:
+
+`main: A → B`
+
+`feature branch: A → B → C`
+
+The feature branch is one commit ahead because commit `C` has not yet been merged into `main`.
+
+### Behind
+
+If a branch is:
+
+**2 behind**
+
+`main` contains two commits that the branch does not contain.
+
+For example:
+
+`main: A → B → C → D`
+
+`feature branch: A → B`
+
+The feature branch is two commits behind because it does not contain commits `C` and `D`.
+
+### 0 Ahead / 0 Behind
+
+If a branch displays:
+
+**0 ahead / 0 behind**
+
+the branch and `main` currently contain the same commit history.
+
+This often happens immediately after creating a new branch before making any changes.
+
+---
+
+## A Complete Example
+
+Suppose you need to add a new troubleshooting section to this guide.
+
+### 1. Start from `main`
+
+Make sure you are viewing the current `main` branch.
+
+### 2. Create a branch
+
+Create:
+
+`add-troubleshooting-guide`
+
+This gives you a separate workspace for the change.
+
+### 3. Edit the documentation
+
+Open:
+
+`GITHUB-DOCUMENTATION-WORKFLOW.md`
+
+Add the troubleshooting content.
+
+### 4. Commit the change
+
+Use a descriptive commit message:
+
+`Add GitHub workflow troubleshooting guidance`
+
+If useful, add an extended description:
+
+`Documents common branch, commit, pull request, and merge mistakes and explains how to recover from them.`
+
+### 5. Create a pull request
+
+Set:
+
+**base: main**
+
+**compare: add-troubleshooting-guide**
+
+Use a pull request title such as:
+
+`Add GitHub workflow troubleshooting guide`
+
+### 6. Review the pull request
+
+Check:
+
+- Commits
+- Files changed
+- Markdown formatting
+- Links
+- Content accuracy
+
+### 7. Merge
+
+Select **Merge pull request** and then **Confirm merge**.
+
+### 8. Verify `main`
+
+Return to the `main` branch and confirm that the troubleshooting section appears in the guide.
+
+### 9. Delete the branch
+
+Once the change is safely in `main`, delete:
+
+`add-troubleshooting-guide`
+
+The feature branch is no longer needed.
+
+---
+
+## Quick Reference: What Am I Actually Doing?
+
+| Action | What It Means | Why You Do It |
+|---|---|---|
+| Create a branch | Create a separate workspace based on the current repository | Keeps unfinished work away from `main` |
+| Edit a file | Change the documentation | Produces the actual content update |
+| Commit | Save a recorded version of your changes | Creates documentation history |
+| Push | Send local commits to GitHub | Makes locally created work available in the remote repository |
+| Pull request | Propose merging one branch into another | Creates an opportunity to review the change |
+| Review Files changed | Inspect exactly what will be modified | Helps catch errors before merging |
+| Merge | Incorporate the branch's changes into the target branch | Publishes the approved work into `main` |
+| Delete branch | Remove the completed temporary workspace | Keeps the repository organized |
+
+> **Note:** When working entirely in GitHub's website, GitHub handles much of the remote repository interaction for you. You may therefore not manually perform a separate `push` step. When using Git locally, `commit` and `push` are separate actions.
