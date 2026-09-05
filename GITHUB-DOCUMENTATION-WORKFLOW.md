@@ -1868,3 +1868,291 @@ Before committing a Markdown document, check:
 - [ ] The document has been reviewed in **Preview**.
 
 > **Tip:** If you cannot remember the Markdown syntax, open an existing `.md` file that contains the formatting you want and select **Edit** to see how it was written.
+
+---
+
+# What Should I Type Here?
+
+GitHub frequently asks you to name or describe something. The following reference explains what information belongs in each field and provides examples for documentation projects.
+
+## Repository Name
+
+The repository name identifies the overall project.
+
+Use a name that describes the project rather than an individual change.
+
+**Examples:**
+
+`taskflow-documentation`
+
+`pto-policy-procedure-redesign`
+
+`github-documentation-workflow`
+
+**Ask yourself:** What is this entire project?
+
+---
+
+## Repository Description
+
+The repository description is a short explanation of what the project contains or accomplishes.
+
+**Example:**
+
+`A practical guide to creating, reviewing, and publishing documentation changes in GitHub`
+
+Keep the description concise enough to understand at a glance.
+
+---
+
+## Branch Name
+
+The branch name identifies the specific change you are making within a repository.
+
+A useful pattern is:
+
+`action-topic`
+
+**Examples:**
+
+`update-task-status`
+
+`redesign-pto-document`
+
+`develop-workflow-guide`
+
+`add-troubleshooting-section`
+
+**Ask yourself:** What change am I making to this project?
+
+Do not use the name of an entirely separate project as a branch name when what you actually need is a new repository.
+
+---
+
+## File Name
+
+The filename should identify the content of the document.
+
+Markdown files use the `.md` extension.
+
+**Examples:**
+
+`getting-started.md`
+
+`update-task-status.md`
+
+`employee-pto-policy-procedure.md`
+
+`GITHUB-DOCUMENTATION-WORKFLOW.md`
+
+If the file belongs in a folder, include the path when creating it:
+
+`docs/getting-started.md`
+
+Before creating the file, ask:
+
+1. What does this document contain?
+2. Which folder should contain it?
+3. Am I creating it from the correct location?
+
+---
+
+## Commit Message
+
+The commit message summarizes one saved change.
+
+Use:
+
+**Action + what changed**
+
+**Examples:**
+
+`Add Markdown quick reference`
+
+`Add task status guide`
+
+`Update README with portfolio overview`
+
+`Clarify branch deletion instructions`
+
+`Fix broken documentation links`
+
+Keep the message short and specific.
+
+---
+
+## Extended Commit Description
+
+The extended description provides optional additional context.
+
+Use it when the commit message alone does not adequately explain the change.
+
+**Example**
+
+Commit message:
+
+`Add troubleshooting and recovery guidance`
+
+Extended description:
+
+`Document common GitHub workflow mistakes, recovery options, branch cleanup, direct commits to main, and how to verify where changes are stored.`
+
+For a simple change such as:
+
+`Fix typo in README`
+
+the extended description can usually be left blank.
+
+---
+
+## Pull Request Title
+
+The pull request title summarizes the **entire body of work** you are proposing to merge.
+
+A branch may contain several commits, so the pull request title does not need to match the most recent commit.
+
+For example:
+
+**Commits:**
+
+- `Add workflow guide foundation`
+- `Add commit message guidance`
+- `Add troubleshooting guidance`
+- `Add Markdown quick reference`
+
+**Pull request title:**
+
+`Add GitHub documentation workflow guide`
+
+**Ask yourself:** What does this entire branch accomplish?
+
+---
+
+## Pull Request Description
+
+The pull request description gives the reviewer an overview of the proposed changes.
+
+A simple documentation template is:
+
+```markdown
+## Summary
+
+- Adds [new content]
+- Updates [existing content]
+- Clarifies [topic or process]
+- Adds [supporting reference or troubleshooting information]
+```
+
+For example:
+
+```markdown
+## Summary
+
+- Adds a comprehensive GitHub documentation workflow guide
+- Explains repositories, branches, commits, pull requests, and merges
+- Adds troubleshooting guidance for common workflow mistakes
+- Includes a Markdown quick reference and workflow checklist
+```
+
+The description should help a reviewer understand the scope without having to inspect every changed line first.
+
+---
+
+## Merge Commit Message
+
+When merging a pull request, GitHub may automatically create a message such as:
+
+`Merge pull request #4 from username/develop-workflow-guide`
+
+In most cases, this can remain unchanged.
+
+The generated message preserves information about the pull request and source branch.
+
+Customize it only when doing so provides meaningful clarity or when your team's standards require a particular format.
+
+---
+
+## Quick Decision Table
+
+| GitHub Is Asking For | Ask Yourself | Example |
+| --- | --- | --- |
+| Repository name | What is the whole project? | `github-documentation-workflow` |
+| Repository description | What does this project provide? | `A practical guide to...` |
+| Branch name | What change am I making? | `add-troubleshooting-section` |
+| Filename | What does this document contain? | `troubleshooting.md` |
+| Commit message | What did I just save? | `Add troubleshooting guidance` |
+| Extended description | Does this commit need more context? | Explain the scope |
+| PR title | What does this entire branch accomplish? | `Add GitHub workflow guide` |
+| PR description | What should the reviewer know? | Summarize major changes |
+| Merge message | Does GitHub's generated text adequately record the merge? | Usually leave it |
+---
+
+# Where Am I in the Workflow?
+
+When you are unsure what to do next, identify the current state of your work.
+
+| What You See | What It Usually Means | Typical Next Step |
+| --- | --- | --- |
+| `main` selected and no work started | You are viewing the accepted version | Create a branch for substantial new work |
+| New branch is `0 ahead / 0 behind` | The branch was created but has no unique commits | Begin editing |
+| Working branch is ahead of `main` | You have committed work not yet in `main` | Continue working or create a pull request |
+| **Compare & pull request** appears | GitHub recognizes branch changes that can be proposed for merge | Create the pull request when the work is ready |
+| Pull request is open | Changes have been proposed but not merged | Review and make corrections if needed |
+| **Files changed** shows the expected edits | The proposed changes are ready for final review | Merge when satisfied |
+| Pull request says **Merged** | The branch changes have been incorporated into the target branch | Verify the changes on `main` |
+| Merged work appears on `main` | The change is safely incorporated | Delete the completed branch |
+| File appears on your branch but not `main` | The work has not been merged | Check the pull request/merge status |
+
+---
+
+# Start-to-Finish Documentation Checklist
+
+Use this checklist when making a substantial documentation change.
+
+## Before Starting
+
+- [ ] Open the correct repository.
+- [ ] Confirm that `main` is selected.
+- [ ] Confirm that you are starting from the current project.
+- [ ] Decide what change you are making.
+- [ ] Create a descriptive branch from `main`.
+
+## While Working
+
+- [ ] Confirm the working branch is selected.
+- [ ] Create or edit the correct file.
+- [ ] Confirm that the file is in the correct folder.
+- [ ] Use appropriate Markdown formatting.
+- [ ] Preview the document.
+- [ ] Review the rendered content for errors.
+- [ ] Commit a meaningful unit of work.
+- [ ] Write a descriptive commit message.
+- [ ] Add an extended description when additional context is useful.
+- [ ] Continue making logical commits on the same branch as needed.
+
+## When the Work Is Ready
+
+- [ ] Create a pull request.
+- [ ] Confirm **base: main**.
+- [ ] Confirm **compare: your working branch**.
+- [ ] Write a clear pull request title.
+- [ ] Add a useful pull request description.
+- [ ] Review the included commits.
+- [ ] Review **Files changed**.
+- [ ] Correct any problems before merging.
+
+## After Review
+
+- [ ] Select **Merge pull request**.
+- [ ] Review the merge message.
+- [ ] Keep the generated merge message unless changing it adds meaningful value.
+- [ ] Select **Confirm merge**.
+- [ ] Return to `main`.
+- [ ] Verify that the expected changes appear on `main`.
+- [ ] Delete the completed working branch.
+
+## The Short Version
+
+> **Main → Branch → Write → Preview → Commit → Pull Request → Review → Merge → Verify → Delete**
+
+If you lose track of the process, return to this sequence and determine which step you completed most recently.
