@@ -152,3 +152,288 @@ For example:
 If either value is incorrect, navigate to the correct repository or switch branches before making the change.
 
 > **Tip:** Make checking the repository and branch part of your normal workflow before creating, editing, or deleting anything.
+
+---
+
+## Creating a Branch for Documentation Work
+
+Before making documentation changes, create a branch from `main` when the work should be reviewed before becoming part of the accepted project.
+
+### Before Creating the Branch
+
+Verify that you are:
+
+1. In the correct repository.
+2. On the `main` branch.
+3. Starting from the current version of the project.
+
+Creating a branch from `main` establishes the current state of `main` as the starting point for the new work.
+
+### Create a Branch in the GitHub Web Interface
+
+1. Open the repository.
+2. Locate the branch selector above the file list. It typically displays `main`.
+3. Select the branch selector.
+4. Enter a descriptive name for the new branch.
+5. Select the option to create the branch from `main`.
+
+For example:
+
+`develop-workflow-guide`
+
+After the branch is created, verify that the branch selector displays the new branch name before making changes.
+
+### Choose a Useful Branch Name
+
+A branch name should communicate the purpose of the work.
+
+Examples include:
+
+- `update-installation-guide`
+- `revise-password-reset-procedure`
+- `add-troubleshooting-section`
+- `develop-workflow-guide`
+
+Avoid vague names such as:
+
+- `changes`
+- `new`
+- `test`
+- `update`
+
+A descriptive branch name makes it easier for writers and reviewers to understand what work is being performed.
+
+---
+
+## Creating and Editing Documentation Files
+
+After switching to the appropriate branch, documentation files can be created or edited without immediately changing the version on `main`.
+
+### Create a New File
+
+1. Verify that the correct repository and branch are displayed.
+2. Select **Add file** or the **+** button near the file list.
+3. Select **Create new file**.
+4. Enter the file name, including the appropriate file extension.
+5. Add the document content in the editor.
+
+For Markdown documentation, use the `.md` file extension.
+
+For example:
+
+`GITHUB-DOCUMENTATION-WORKFLOW.md`
+
+### Create a File Inside a Folder
+
+GitHub also allows a file path to be entered when creating a file.
+
+For example:
+
+`guides/creating-a-branch.md`
+
+creates the Markdown file inside a `guides` folder.
+
+Use folders to group related content rather than placing unrelated files together.
+
+For example:
+
+    repository/
+    │
+    ├── README.md
+    ├── guides/
+    │   ├── getting-started.md
+    │   └── troubleshooting.md
+    └── images/
+        └── example.png
+
+### Decide Where a File Belongs
+
+File organization should reflect the purpose of the content.
+
+For example, a folder named `original` might contain source documentation preserved for comparison:
+
+    original/
+        employee-pto-policy-procedure.md
+
+A redesigned document should not automatically be placed in the `original` folder simply because it is related to that file. If `original` means "content before redesign," placing the final version there would make the folder structure misleading.
+
+A clearer structure would be:
+
+    repository/
+    │
+    ├── original/
+    │   └── employee-pto-policy-procedure.md
+    │
+    ├── employee-pto-policy-procedure.md
+    └── CASE-STUDY.md
+
+The folder structure itself communicates information about the project.
+
+---
+
+## Previewing Markdown Before Committing
+
+Before committing a Markdown document, use GitHub's **Preview** option to review how the content will appear when rendered.
+
+Check for:
+
+- Correct heading levels
+- Working lists
+- Proper spacing
+- Correct tables
+- Readable code or examples
+- Correct blockquotes
+- Working links
+- Consistent formatting
+
+Previewing does not commit or publish the change. It provides an opportunity to catch formatting problems before saving the change to the branch history.
+
+A useful documentation workflow is:
+
+    Author
+      ↓
+    Preview
+      ↓
+    Review
+      ↓
+    Commit
+
+---
+
+## Understanding Commits
+
+A **commit** records a saved change in the history of a branch.
+
+A commit can be thought of as a checkpoint that answers three basic questions:
+
+- What changed?
+- Who made the change?
+- When was the change made?
+
+The commit message provides a short explanation of the purpose of the change.
+
+### A Commit Does Not Mean a Merge
+
+Committing a change to a feature branch does **not** automatically update `main`.
+
+For example:
+
+    main
+      │
+      └── create develop-workflow-guide
+                    │
+                    └── add documentation
+                              │
+                              └── commit
+
+At this point, the committed documentation exists on `develop-workflow-guide`, but `main` has not received the change.
+
+The work must later be merged into `main`.
+
+### Write Meaningful Commit Messages
+
+Commit messages should briefly describe the change that was made.
+
+Good examples:
+
+- `Add GitHub workflow guide foundation`
+- `Add branch creation procedure`
+- `Clarify PTO approval requirements`
+- `Add troubleshooting guidance`
+- `Fix broken documentation links`
+
+Avoid messages such as:
+
+- `stuff`
+- `changes`
+- `update`
+- `fixed it`
+
+A reviewer should be able to look at the commit history and understand how the documentation evolved.
+
+### Make Logical Commits
+
+A project does not need to be completed in one commit.
+
+Instead, commits can represent meaningful units of work.
+
+For example:
+
+    Add GitHub workflow guide foundation
+                ↓
+    Add branch and file creation procedures
+                ↓
+    Add commit and pull request procedures
+                ↓
+    Add merge and cleanup guidance
+                ↓
+    Add troubleshooting guidance
+
+This creates a useful history of the documentation project and makes individual changes easier to understand and review.
+
+---
+
+## Understanding Ahead and Behind
+
+GitHub compares branches and may display **Ahead** and **Behind** values.
+
+These values describe differences in commit history between the selected branch and the branch being used for comparison, typically `main`.
+
+### Ahead
+
+If a branch is **1 commit ahead of `main`**, the branch contains one commit that `main` does not contain.
+
+For example:
+
+    main
+      │
+      A
+      │
+      └──────── feature branch
+                     │
+                     B
+
+The feature branch contains commit `B`, but `main` does not.
+
+The branch is therefore:
+
+**1 ahead**
+
+This is what happens after making a commit on a feature branch before merging it into `main`.
+
+### Behind
+
+If a branch is **2 commits behind `main`**, `main` contains two commits that the branch does not contain.
+
+For example:
+
+    feature branch
+          │
+          A
+
+    main
+      │
+      A
+      │
+      B
+      │
+      C
+
+The feature branch does not contain commits `B` or `C`.
+
+It is therefore:
+
+**2 behind**
+
+### Ahead 0 / Behind 2
+
+A branch showing:
+
+**Ahead: 0**  
+**Behind: 2**
+
+contains no commits that are missing from `main`, while `main` contains two newer commits that are missing from the branch.
+
+This commonly occurs when an old branch has already served its purpose and `main` has continued to change.
+
+> **Important:** Ahead and Behind describe commit history. Always understand the status of a branch before deleting or attempting to merge it.
