@@ -437,3 +437,209 @@ contains no commits that are missing from `main`, while `main` contains two newe
 This commonly occurs when an old branch has already served its purpose and `main` has continued to change.
 
 > **Important:** Ahead and Behind describe commit history. Always understand the status of a branch before deleting or attempting to merge it.
+
+---
+
+## Commit Messages and Extended Descriptions
+
+GitHub may ask for both a **commit message** and an **extended description** when saving a change.
+
+These fields serve different purposes.
+
+### Commit Message
+
+The commit message is the short summary of the change.
+
+It should usually:
+
+- Begin with an action verb
+- Describe what changed
+- Be specific enough to understand later
+- Stay concise
+
+Good examples:
+
+- `Add GitHub workflow guide foundation`
+- `Add branch and file creation guidance`
+- `Update README with portfolio overview`
+- `Fix broken documentation links`
+- `Clarify PTO approval requirements`
+
+Avoid vague messages such as:
+
+- `Update`
+- `Changes`
+- `Stuff`
+- `Fix`
+- `Done`
+
+A useful pattern is:
+
+> **Action + what changed**
+
+Examples:
+
+`Add troubleshooting section`
+
+`Update task status procedure`
+
+`Remove outdated screenshots`
+
+---
+
+### Extended Description
+
+The extended description is optional.
+
+Use it when the short commit message does not provide enough context.
+
+The extended description can explain:
+
+- Why the change was needed
+- What sections were added or revised
+- Important context for reviewers
+- Multiple related changes included in one commit
+
+Example:
+
+**Commit message**
+
+`Add branch, file, and commit guidance`
+
+**Extended description**
+
+`Document branch creation, file organization, Markdown previewing, commit practices, and Ahead/Behind branch status.`
+
+This provides more context without making the commit message itself too long.
+
+### When to Leave the Extended Description Blank
+
+Leave the extended description blank when the commit message already explains the change clearly.
+
+For example:
+
+**Commit message**
+
+`Fix broken link in README`
+
+No extended description is needed because the change is simple and specific.
+
+Another example:
+
+**Commit message**
+
+`Add TaskFlow project to portfolio`
+
+If the commit only adds that one project to the profile README, the short message is usually sufficient.
+
+A good rule is:
+
+> If someone can understand the change from the commit message alone, the extended description is optional.
+
+---
+
+## When GitHub Generates a Commit Message
+
+GitHub sometimes generates commit text automatically.
+
+This often happens when merging a pull request.
+
+For example, GitHub may generate:
+
+`Merge pull request #3 from username/update-task-status`
+
+and use the pull request title as the extended description.
+
+In this situation, the generated message is usually appropriate and can be left unchanged.
+
+The auto-generated merge message records:
+
+- The pull request number
+- The source branch
+- The fact that the change was merged
+
+This creates a useful historical record.
+
+### When to Keep the Auto-Generated Merge Message
+
+Keep GitHub's auto-generated merge message when:
+
+- The pull request title is already clear
+- The branch name is descriptive
+- The merge represents a normal completed change
+- There is no additional context that future reviewers need
+
+Example:
+
+`Merge pull request #1 from christinahelin/redesign-pto-document`
+
+Extended description:
+
+`Redesign PTO policy and procedure`
+
+This is clear and provides useful history.
+
+### When You Might Change It
+
+Consider changing auto-generated text only when:
+
+- The generated wording is unclear
+- The pull request title is too vague
+- The branch name does not explain the change
+- Important context would otherwise be lost
+
+For example, if the pull request title were:
+
+`Updates`
+
+that would not be very useful in the project history.
+
+A clearer merge description might be:
+
+`Update onboarding documentation and correct broken navigation links`
+
+However, it is generally better to write a clear pull request title before merging rather than rewriting the merge message afterward.
+
+---
+
+## Commit Message vs. Pull Request Title
+
+Commit messages and pull request titles are related, but they are not always the same thing.
+
+A **commit message** describes one saved unit of work.
+
+A **pull request title** describes the overall change being proposed for merge.
+
+For example, one branch might contain several commits:
+
+- `Add workflow guide foundation`
+- `Add branch and commit guidance`
+- `Add troubleshooting section`
+
+The pull request title could summarize the entire body of work:
+
+`Add GitHub documentation workflow guide`
+
+This means:
+
+    Branch
+      │
+      ├── Commit 1
+      ├── Commit 2
+      └── Commit 3
+              ↓
+        Pull Request
+              ↓
+          Merge to main
+
+The commit history shows how the work developed.
+
+The pull request title summarizes the overall change being reviewed and merged.
+
+| Field | Purpose | Usually Change It? |
+| --- | --- | --- |
+| Commit message | Short summary of one saved change | Yes |
+| Extended description | Optional extra context for the commit | Only when useful |
+| Pull request title | Summary of the overall proposed change | Yes |
+| Pull request description | Explains scope and key changes | Usually yes |
+| Auto-generated merge message | Records the merge event | Usually leave as generated |
