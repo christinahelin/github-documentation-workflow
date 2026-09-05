@@ -668,6 +668,8 @@ The pull request title summarizes the overall change being reviewed and merged.
 | Pull request description | Explains scope and key changes | Usually yes |
 | Auto-generated merge message | Records the merge event | Usually leave as generated |
 
+---
+
 ## Pull Requests
 
 A pull request (PR) is a request to merge changes from one branch into another branch.
