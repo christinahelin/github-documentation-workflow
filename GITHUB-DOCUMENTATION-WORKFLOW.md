@@ -21,6 +21,30 @@ The guide covers:
 
 ---
 
+## Contents
+
+- [Understanding the GitHub Structure](#understanding-the-github-structure)
+- [Repository vs. Branch](#repository-vs-branch)
+- [Check Your Location Before Making Changes](#check-your-location-before-making-changes)
+- [Creating a Branch for Documentation Work](#creating-a-branch-for-documentation-work)
+- [Creating and Editing Documentation Files](#creating-and-editing-documentation-files)
+- [Previewing Markdown Before Committing](#previewing-markdown-before-committing)
+- [Understanding Commits](#understanding-commits)
+- [Commit Messages and Extended Descriptions](#commit-messages-and-extended-descriptions)
+- [Pull Requests](#pull-requests)
+- [Creating a Pull Request](#creating-a-pull-request)
+- [Reviewing a Pull Request Before Merging](#reviewing-a-pull-request-before-merging)
+- [Merging a Pull Request](#merging-a-pull-request)
+- [Deleting a Branch After a Merge](#deleting-a-branch-after-a-merge)
+- [Understanding Ahead and Behind](#understanding-ahead-and-behind)
+- [Troubleshooting and Recovering from Common Mistakes](#troubleshooting-and-recovering-from-common-mistakes)
+- [Markdown Quick Reference](#markdown-quick-reference)
+- [What Should I Type Here?](#what-should-i-type-here)
+- [Where Am I in the Workflow?](#where-am-i-in-the-workflow)
+- [Start-to-Finish Documentation Checklist](#start-to-finish-documentation-checklist)
+
+---
+
 ## Understanding the GitHub Structure
 
 Before making changes in GitHub, it is important to understand how the major components relate to one another.
@@ -1101,7 +1125,7 @@ The feature branch is no longer needed.
 
 ---
 
-# Troubleshooting and Recovering from Common Mistakes
+## Troubleshooting and Recovering from Common Mistakes
 
 Mistakes in GitHub do not always mean that work has been lost or damaged. Before deleting, reverting, or recreating anything, identify:
 
@@ -1114,9 +1138,9 @@ Understanding where the change exists determines the appropriate recovery action
 
 ---
 
-## I Created a Branch in the Wrong Repository
+### I Created a Branch in the Wrong Repository
 
-### What Happened?
+#### What Happened?
 
 A branch belongs to the repository in which it was created.
 
@@ -1145,7 +1169,7 @@ instead of:
     │
     └── main
 
-### How to Fix It
+#### How to Fix It
 
 If no work on the accidental branch needs to be preserved:
 
@@ -1163,9 +1187,9 @@ Deleting the accidental branch does not delete a separate repository with the sa
 
 ---
 
-## I Created a File in the Wrong Folder
+### I Created a File in the Wrong Folder
 
-### What Happened?
+#### What Happened?
 
 When creating a file, GitHub uses the path shown in the filename area to determine where the file will be stored.
 
@@ -1177,7 +1201,7 @@ places the file inside the `original` folder.
 
 If you intended the file to be at the repository root, that location would be incorrect.
 
-### If You Have Not Committed Yet
+#### If You Have Not Committed Yet
 
 The easiest solution is usually:
 
@@ -1187,7 +1211,7 @@ The easiest solution is usually:
 
 If you are creating a root-level file, make sure the path does not include an unwanted folder.
 
-### If You Already Committed the File
+#### If You Already Committed the File
 
 Do not panic or delete the entire branch.
 
@@ -1201,7 +1225,7 @@ A correction commit is a normal part of version-controlled work.
 
 ---
 
-## I Started Editing the Wrong File
+### I Started Editing the Wrong File
 
 If the change has **not been committed**, cancel the edit and open the correct file.
 
@@ -1217,11 +1241,11 @@ Example:
 
 ---
 
-## I Made Changes on `main` Instead of Creating a Branch
+### I Made Changes on `main` Instead of Creating a Branch
 
 First determine whether the change has been committed.
 
-### If You Have Not Committed
+#### If You Have Not Committed
 
 Cancel the edit.
 
@@ -1232,7 +1256,7 @@ Then:
 3. Create the appropriate working branch.
 4. Make the change on that branch.
 
-### If You Already Committed to `main`
+#### If You Already Committed to `main`
 
 The change is now part of `main`.
 
@@ -1246,7 +1270,7 @@ For a professional repository, follow the team's established process for correct
 
 ---
 
-## When Is It Okay to Commit Directly to `main`?
+### When Is It Okay to Commit Directly to `main`?
 
 For a small personal repository, direct commits to `main` may be reasonable for minor changes such as:
 
@@ -1268,7 +1292,7 @@ When in doubt, using a branch is generally the safer workflow because it creates
 
 ---
 
-## I Committed Too Early
+### I Committed Too Early
 
 A commit does not have to represent the finished project.
 
@@ -1288,7 +1312,7 @@ Multiple logical commits on one branch are normal.
 
 ---
 
-## I Used a Bad Commit Message
+### I Used a Bad Commit Message
 
 A vague commit message such as:
 
@@ -1314,7 +1338,7 @@ Good version-control habits are developed over time. Not every imperfect message
 
 ---
 
-## I Do Not See My Changes on `main`
+### I Do Not See My Changes on `main`
 
 This is often normal.
 
@@ -1356,7 +1380,7 @@ It has not disappeared. It remains on the feature branch.
 
 ---
 
-## I Created a Pull Request but Found Another Problem
+### I Created a Pull Request but Found Another Problem
 
 You do not necessarily need to close the pull request.
 
@@ -1373,7 +1397,7 @@ This allows review feedback and corrections to remain part of the same proposed 
 
 ---
 
-## I Opened a Pull Request but Do Not Want to Merge It
+### I Opened a Pull Request but Do Not Want to Merge It
 
 A pull request does not have to be merged.
 
@@ -1389,7 +1413,7 @@ Decide separately whether the branch should be preserved or removed.
 
 ---
 
-## I Am Afraid to Delete a Branch
+### I Am Afraid to Delete a Branch
 
 Before deleting a completed branch, confirm:
 
@@ -1421,7 +1445,7 @@ The temporary branch name is removed; the merged work is not.
 
 ---
 
-## I See an Old Branch That Is 0 Ahead and 2 Behind
+### I See an Old Branch That Is 0 Ahead and 2 Behind
 
 Suppose GitHub displays:
 
@@ -1439,7 +1463,7 @@ Before deleting it, still confirm that the branch does not contain work you inte
 
 ---
 
-## I Deleted the Wrong Branch
+### I Deleted the Wrong Branch
 
 First, determine whether the branch had been merged.
 
@@ -1453,7 +1477,7 @@ If the branch contained unmerged work, recovery may require restoring the branch
 
 ---
 
-## Repository or Branch? Quick Decision Guide
+### Repository or Branch? Quick Decision Guide
 
 Ask:
 
@@ -1475,7 +1499,7 @@ Ask:
 
 ---
 
-## Before You Click Delete, Merge, or Commit
+### Before You Click Delete, Merge, or Commit
 
 When uncertain, stop and check:
 
@@ -1493,7 +1517,7 @@ Taking a few seconds to identify the repository, branch, and state of the change
 
 ---
 
-# Markdown Quick Reference
+## Markdown Quick Reference
 
 GitHub uses **Markdown** to format text in files with the `.md` extension.
 
@@ -1511,11 +1535,11 @@ Use the following reference when creating or editing documentation in GitHub.
 
 ---
 
-## Headings
+### Headings
 
 Use `#` characters to create headings.
 
-### What You Type
+#### What You Type
 
 ```markdown
 # Document Title
@@ -1540,17 +1564,17 @@ For most documentation, use only one Heading 1 for the document title and organi
 
 ---
 
-## Bold Text
+### Bold Text
 
 Use two asterisks on each side of text to make it bold.
 
-### What You Type
+#### What You Type
 
 ```markdown
 Select **Commit changes**.
 ```
 
-### How It Renders
+#### How It Renders
 
 Select **Commit changes**.
 
@@ -1558,17 +1582,17 @@ Bold formatting is useful for interface elements such as button names, menu opti
 
 ---
 
-## Italic Text
+### Italic Text
 
 Use one asterisk on each side of text.
 
-### What You Type
+#### What You Type
 
 ```markdown
 *Optional*
 ```
 
-### How It Renders
+#### How It Renders
 
 *Optional*
 
@@ -1576,11 +1600,11 @@ Use italics sparingly when emphasis is necessary.
 
 ---
 
-## Bulleted Lists
+### Bulleted Lists
 
 Use a hyphen followed by a space for each list item.
 
-### What You Type
+#### What You Type
 
 ```markdown
 - Create a branch
@@ -1589,7 +1613,7 @@ Use a hyphen followed by a space for each list item.
 - Commit the changes
 ```
 
-### How It Renders
+#### How It Renders
 
 - Create a branch
 - Edit the documentation
@@ -1600,11 +1624,11 @@ Use bulleted lists when the order of the items does not matter.
 
 ---
 
-## Numbered Lists
+### Numbered Lists
 
 Use numbers when the reader must perform steps in a particular order.
 
-### What You Type
+#### What You Type
 
 ```markdown
 1. Open the repository.
@@ -1614,7 +1638,7 @@ Use numbers when the reader must perform steps in a particular order.
 5. Commit the changes.
 ```
 
-### How It Renders
+#### How It Renders
 
 1. Open the repository.
 2. Create a branch.
@@ -1626,11 +1650,11 @@ For procedures, numbered lists help communicate that the actions should be compl
 
 ---
 
-## Links
+### Links
 
 Use square brackets for the text the reader sees and parentheses for the destination.
 
-### What You Type
+#### What You Type
 
 ```markdown
 [View the TaskFlow documentation](https://github.com/example/taskflow-documentation)
@@ -1654,11 +1678,11 @@ A relative link points to another file based on its location within the reposito
 
 ---
 
-## Tables
+### Tables
 
 Tables use vertical bars (`|`) to separate columns.
 
-### What You Type
+#### What You Type
 
 ```markdown
 | Status | Description |
@@ -1668,7 +1692,7 @@ Tables use vertical bars (`|`) to separate columns.
 | Denied | Request not approved |
 ```
 
-### How It Renders
+#### How It Renders
 
 | Status | Description |
 | --- | --- |
@@ -1686,17 +1710,17 @@ defines the table columns and separates the header from the table content.
 
 ---
 
-## Blockquotes
+### Blockquotes
 
 Use `>` at the beginning of a line to create a blockquote.
 
-### What You Type
+#### What You Type
 
 ```markdown
 > **Tip:** Preview your Markdown before committing the change.
 ```
 
-### How It Renders
+#### How It Renders
 
 > **Tip:** Preview your Markdown before committing the change.
 
@@ -1704,17 +1728,17 @@ Blockquotes can be useful for notes, tips, warnings, or other information that s
 
 ---
 
-## Inline Code
+### Inline Code
 
 Use a single backtick on each side of text to identify commands, file names, branch names, paths, or other technical values.
 
-### What You Type
+#### What You Type
 
 ```markdown
 Create a branch named `update-task-status`.
 ```
 
-### How It Renders
+#### How It Renders
 
 Create a branch named `update-task-status`.
 
@@ -1730,11 +1754,11 @@ Other examples include:
 
 ---
 
-## Code Blocks
+### Code Blocks
 
 Use three backticks before and after a block of code or preformatted text.
 
-### What You Type
+#### What You Type
 
     ```text
     main
@@ -1748,11 +1772,11 @@ Code blocks preserve formatting and are useful for examples where spacing matter
 
 ---
 
-## Horizontal Lines
+### Horizontal Lines
 
 Use three hyphens to create a horizontal divider.
 
-### What You Type
+#### What You Type
 
 ```markdown
 ---
@@ -1764,7 +1788,7 @@ Avoid using them so frequently that the document becomes visually fragmented.
 
 ---
 
-## File Names and Paths
+### File Names and Paths
 
 A Markdown filename typically ends in:
 
@@ -1796,9 +1820,9 @@ When creating a new file in GitHub, entering the folder and filename together ca
 
 ---
 
-## Common Markdown Mistakes
+### Common Markdown Mistakes
 
-### Missing Space After a Heading Symbol
+#### Missing Space After a Heading Symbol
 
 Incorrect:
 
@@ -1812,7 +1836,7 @@ Correct:
 ## Heading
 ```
 
-### Forgetting to Close Bold Formatting
+#### Forgetting to Close Bold Formatting
 
 Incorrect:
 
@@ -1826,7 +1850,7 @@ Correct:
 Select **Commit changes**.
 ```
 
-### Incorrect Link Structure
+#### Incorrect Link Structure
 
 Incorrect:
 
@@ -1840,7 +1864,7 @@ Correct:
 [Read the guide](GITHUB-DOCUMENTATION-WORKFLOW.md)
 ```
 
-### Forgetting the Table Separator Row
+#### Forgetting the Table Separator Row
 
 A Markdown table requires the separator underneath the header:
 
@@ -1852,7 +1876,7 @@ A Markdown table requires the separator underneath the header:
 
 ---
 
-## Markdown Writing Checklist
+### Markdown Writing Checklist
 
 Before committing a Markdown document, check:
 
@@ -1871,11 +1895,11 @@ Before committing a Markdown document, check:
 
 ---
 
-# What Should I Type Here?
+## What Should I Type Here?
 
 GitHub frequently asks you to name or describe something. The following reference explains what information belongs in each field and provides examples for documentation projects.
 
-## Repository Name
+### Repository Name
 
 The repository name identifies the overall project.
 
@@ -1893,7 +1917,7 @@ Use a name that describes the project rather than an individual change.
 
 ---
 
-## Repository Description
+### Repository Description
 
 The repository description is a short explanation of what the project contains or accomplishes.
 
@@ -1905,7 +1929,7 @@ Keep the description concise enough to understand at a glance.
 
 ---
 
-## Branch Name
+### Branch Name
 
 The branch name identifies the specific change you are making within a repository.
 
@@ -1929,7 +1953,7 @@ Do not use the name of an entirely separate project as a branch name when what y
 
 ---
 
-## File Name
+### File Name
 
 The filename should identify the content of the document.
 
@@ -1957,7 +1981,7 @@ Before creating the file, ask:
 
 ---
 
-## Commit Message
+### Commit Message
 
 The commit message summarizes one saved change.
 
@@ -1981,7 +2005,7 @@ Keep the message short and specific.
 
 ---
 
-## Extended Commit Description
+### Extended Commit Description
 
 The extended description provides optional additional context.
 
@@ -2005,7 +2029,7 @@ the extended description can usually be left blank.
 
 ---
 
-## Pull Request Title
+### Pull Request Title
 
 The pull request title summarizes the **entire body of work** you are proposing to merge.
 
@@ -2028,7 +2052,7 @@ For example:
 
 ---
 
-## Pull Request Description
+### Pull Request Description
 
 The pull request description gives the reviewer an overview of the proposed changes.
 
@@ -2058,7 +2082,7 @@ The description should help a reviewer understand the scope without having to in
 
 ---
 
-## Merge Commit Message
+### Merge Commit Message
 
 When merging a pull request, GitHub may automatically create a message such as:
 
